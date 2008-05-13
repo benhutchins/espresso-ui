@@ -1,0 +1,113 @@
+<h3>Creating a context menu</h3>
+
+<p><strong>Syntax:</strong></p>
+<pre>
+new Espresso.Context($(element), menu, options)
+</pre>
+
+<h3>Espresso.Context Methods</h3>
+<p>
+
+<a href="#espresso.context.initialize">initialize()</a><br />
+<a href="#espresso.context.setOpacity">setOpacity()</a><br />
+</p>
+
+<div class="function window" title="initialize">
+	<a name="espresso.context.initialize"></a>
+	<p class="title"><span class="function">initialize(selector, items, options)</span> Context menu constructor, used when creating a new context menu (new Espresso.context(...))</p>
+	<p class="parameter">
+		<span class="field">selector</span>
+		<span class="explanation">Element or elements of items to add context menu to</span>
+	</p>
+	<p class="parameter">
+		<span class="field">items</span>
+		<span class="explanation">Context menu list elements</span>
+	</p>
+	<p class="parameter">
+		<span class="field">options</span>
+		<span class="explanation">
+			Hash map of window options, here is the key list:
+			<table>
+			<tr><th>Key</th>   <th>Default</th> <th>Description </th></tr>
+			<tr>
+				<td class="key">class</td>
+				<td class="default">menu desktop</td>
+				<td class="detail">Class(es) to add to list container </td>
+			</tr>
+			<tr>
+				<td class="key">pageOffset</td>
+				<td class="default">25</td>
+				<td class="detail">Distance menu can be from edge of window </td>
+			</tr>
+			<tr>
+				<td class="key">opacity</td>
+				<td class="default">1</td>
+				<td class="detail">Context Menu's opacity </td>
+			</tr>
+			<tr>
+				<td class="key">zIndex</td>
+				<td class="default">100</td>
+				<td class="detail">Z-Index of Context Menu, set higher than everything else </td>
+			</tr>
+			<tr>
+				<td class="key">children</td>
+				<td class="default">false</td>
+				<td class="detail">Let context menu work for selector children or just selector elements </td>
+			</tr>
+			<tr>
+				<td class="key">Event callbacks</td>
+				<td class="default">$empty</td>
+				<td class="detail">All event callbacks:<br/>
+					<em>onHide onShow onSelect</em>
+				</td>
+			</tr>
+			</table>
+		</span>
+	</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="setOpacity">
+	<a name="espresso.context.setOpacity"></a>
+	<p class="title"><span class="function">setOpacity(opacity)</span> Sets menu's opacity</p>
+	<p class="parameter">
+		<span class="field">opacity</span>
+		<span class="explanation">Float value between 0 and 1</span>
+	</p>
+</div>
+<br style='clear:both'/>
+
+<h3>Adding a context menu to an element</h3>
+Example HTML:
+<pre>
+&lt;div id="desktop"&gt;Hell world&lt;/div&gt;
+</pre>
+
+Example Javascript:
+<pre>
+	if ($('desktop')){
+		Espresso.Context($('docsLink'), [
+			{
+				'name': 'New',
+				'callback': function(e) {
+					var tagName = e.target.tagName.toLowerCase(), x = e.page.x, y = e.page.y;
+					alert('you clicked on <' + tagName + '> element at x: ' + x + ', and y: ' + y);
+				}
+			},
+			{separator: true},
+			{
+				'name': 'Save',
+				'url': 'http://www.xvolter.com/'
+			},
+			{
+				'name': 'Save as',
+				'callback': function() {
+					alert ('Saving as..');
+				}
+			}
+		]);
+	}
+</pre>
+
+<p><strong>Notes:</strong></p>
+<p>Currently you cannot add list items after you add the context menu, but I plan to fix this.</p>

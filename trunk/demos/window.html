@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<title>Mootools Cocoa UI</title>
+	<link rel="stylesheet" href="../css/style.css" type="text/css" />
+	<link rel="stylesheet" href="../css/espresso.window.css" type="text/css" />
+	<script type="text/javascript" src="../libs/mootools-beta-1.2b2.js" charset="utf-8"></script>
+	<!--[if IE]>
+		<script type="text/javascript" src="../scripts/excanvas-compressed.js"></script>		
+	<![endif]-->
+	<script type="text/javascript" src="../scripts/espresso.window.js" charset="utf-8"></script>
+
+	<script type="text/javascript">
+		window.addEvent('load', function(){
+			var Win1 = new Espresso.Window({
+				title: 'Window 1',
+				content: 'Hello you. Like this script? That is a good thing, right!'//,
+				//center: false
+			}).show();
+
+			var Win2 = new Espresso.Window().setTitle('Hey').setContent('hello world').show();
+			$('showMe').addEvent('click', function() {
+				Win2.show();
+			}.bind(Win2));
+
+			new Espresso.Window().setTitle('Hello world').setContent({
+				method: 'xhr',
+				url: 'pages/helloworld.html'
+			}).setDestroyOnClose(true).show().setPosition({center: false});
+		});
+	</script>
+</head>
+<body>
+	<p>Hello <a href="#" id="showMe">Show Win2</a></p>
+</body>
+</html>

@@ -1,0 +1,620 @@
+<h3>Creating a New Window</h3>
+
+<p><strong>Syntax:</strong></p>
+<pre>
+new Espresso.Window();
+</pre>
+
+<h3>Espresso.Window Methods</h3>
+<p>
+
+<a href="#espresso.window.initialize">initialize()</a><br />
+<a href="#espresso.window.setOpacity">setOpacity()</a><br />
+<a href="#espresso.window.getID">getID()</a><br />
+<a href="#espresso.window.getZIndex">getZIndex()</a><br />
+<a href="#espresso.window.setZIndex">setZIndex()</a><br />
+<a href="#espresso.window.getWindowNumber">getWindowNumber()</a><br />
+<a href="#espresso.window.setTitle">setTitle()</a><br />
+<a href="#espresso.window.getTitle">getTitle()</a><br />
+<a href="#espresso.window.getElement">getElement()</a><br />
+<a href="#espresso.window.getContent">getContent()</a><br />
+<a href="#espresso.window.getSize">getSize()</a><br />
+<a href="#espresso.window.setContent">setContent()</a><br />
+<a href="#espresso.window.focus">focus()</a><br />
+<a href="#espresso.window.show">show()</a><br />
+<a href="#espresso.window.hide">hide()</a><br />
+<a href="#espresso.window.destroy">destroy()</a><br />
+<a href="#espresso.window.maximize">maximize()</a><br />
+<a href="#espresso.window.restoreMaximize">restoreMaximize()</a><br />
+<a href="#espresso.window.minimize">minimize()</a><br />
+<a href="#espresso.window.restoreMinimize">restoreMinimize()</a><br />
+<a href="#espresso.window.visible">visible()</a><br />
+<a href="#espresso.window.showCenter">showCenter()</a><br />
+<a href="#espresso.window.setPosition">setPosition()</a><br />
+<a href="#espresso.window.getPosition">getPosition()</a><br />
+<a href="#espresso.window.getContentPosition">getContentPosition()</a><br />
+<a href="#espresso.window.resize">resize()</a><br />
+<a href="#espresso.window.setSize">setSize()</a><br />
+<a href="#espresso.window.setDestroyOnClose">setDestroyOnClose()</a><br />
+</p>
+
+<div class="function window" title="initialize">
+	<a name="espresso.window.initialize"></a>
+	<p class="title"><span class="function">initialize(options)</span> Window constructor used when creating new window (new Espresso.Window(options))</p>
+	<p class="parameter">
+		<span class="field">options</span>
+		<span class="explanation">
+			Hash map of window options, here is the key list:
+			<table>
+			<tr><th>Key</th>   <th>Default</th> <th>Description </th></tr>
+			<tr>
+				<td class="key">id</td>
+				<td class="default">generated</td>
+				<td class="detail">window DOM id. Must be unique </td>
+			</tr>
+			<tr>
+				<td class="key">class</td>
+				<td class="default">espresso</td>
+				<td class="detail">Class name prefix </td>
+			</tr>
+			<tr>
+				<td class="key">opacity</td>
+				<td class="default">1</td>
+				<td class="detail">Window opacity </td>
+			</tr>
+			<tr>
+				<td class="key">paddingVertical</td>
+				<td class="default">10</td>
+				<td class="detail">Vertical padding on window </td>
+			</tr>
+			<tr>
+				<td class="key">paddingHorizontal</td>
+				<td class="default">12</td>
+				<td class="detail">Horizontal padding on window </td>
+			</tr>
+			<tr>
+				<td class="key">bgColor</td>
+				<td class="default">#fff</td>
+				<td class="detail">Background color of window </td>
+			</tr>
+			<tr>
+				<td class="key">headerStartColor</td>
+				<td class="default">[250, 250, 250]</td>
+				<td class="detail">Header gradient start </td>
+			</tr>
+			<tr>
+				<td class="key">headerStopColor</td>
+				<td class="default">[228, 228, 228]</td>
+				<td class="detail">Header gradient end </td>
+			</tr>
+			<tr>
+				<td class="key">footerBgColor</td>
+				<td class="default">[246, 246, 246]</td>
+				<td class="detail">Footer background color (in rgb) </td>
+			</tr>
+			<tr>
+				<td class="key">minimizeColor</td>
+				<td class="default">[231, 231, 209]</td>
+				<td class="detail">Minimize button color (in rgb) </td>
+			</tr>
+			<tr>
+				<td class="key">maximizeColor</td>
+				<td class="default">[217, 229, 217]</td>
+				<td class="detail">Maximize button color (in rgb) </td>
+			</tr>
+			<tr>
+				<td class="key">closeColor</td>
+				<td class="default">[229, 217, 217]</td>
+				<td class="detail">Close button color (in rgb) </td>
+			</tr>
+			<tr>
+				<td class="key">resizableColor</td>
+				<td class="default">[209, 209, 209]</td>
+				<td class="detail">Resizable triangle color (in rgb) </td>
+			</tr>
+			<tr>
+				<td class="key">cornerRadius</td>
+				<td class="default">9</td>
+				<td class="detail">Circle radius of corners </td>
+			</tr>
+			<tr>
+				<td class="key">shadowWidth</td>
+				<td class="default">3</td>
+				<td class="detail">Width of window dropoff shadow </td>
+			</tr>
+			<tr>
+				<td class="key">headerHeight</td>
+				<td class="default">25</td>
+				<td class="detail">Height of window titlebar </td>
+			</tr>
+			<tr>
+				<td class="key">footerHeight</td>
+				<td class="default">26</td>
+				<td class="detail">Height of the bottom of the window  </td>
+			</tr>
+			<tr>
+				<td class="key">width / height</td>
+				<td class="default">100/300</td>
+				<td class="detail">Width and height of the window  </td>
+			</tr>  
+			<tr>
+				<td class="key">maxWidth / maxHeight</td>
+				<td class="default">300/500</td>
+				<td class="detail">Maximum width and height of the window</td>
+			</tr>
+			<tr>
+				<td class="key">minWidth / minHeight</td>
+				<td class="default">100/20</td>
+				<td class="detail">Minimum width and height of the window </td>
+			</tr>
+			<tr>
+				<td class="key">title</td>
+				<td class="default">none</td>
+				<td class="detail">Title of window</td>
+			</tr>
+			<tr>
+				<td class="key">scrollbars</td>
+				<td class="default">true</td>
+				<td class="detail">Can the window have scrollbars when the content is overflowing?</td>
+			</tr>
+			<tr>
+				<td class="key">resizable</td>
+				<td class="default">true</td>
+				<td class="detail">Specify if the window can be resized</td>
+			</tr>
+			<tr>
+				<td class="key">resizelimit</td>
+				<td class="default">true</td>
+				<td class="detail">Specify if the window has a min or max to it's resizing limits</td>
+			</tr>
+			<tr>
+				<td class="key">closable</td>
+				<td class="default">true</td>
+				<td class="detail">Specify if the window can be closed</td>
+			</tr>
+			<tr>
+				<td class="key">minimizable</td>
+				<td class="default">true</td>
+				<td class="detail">Specify if the window can be minimized</td>
+			</tr>
+			<tr>
+				<td class="key">maximizable</td>
+				<td class="default">true</td>
+				<td class="detail">Specify if the window can be maximized</td>
+			</tr>
+			<tr>
+				<td class="key">draggable</td>
+				<td class="default">true</td>
+				<td class="detail">Specify if the window can be dragged</td>
+			</tr>
+			<tr>
+				<td class="key">destroyOnClose</td>
+				<td class="default">false</td>
+				<td class="detail">Remove window from DOM when closing window. By default, the window is just hidden</td>
+			</tr>
+			<tr>
+				<td class="key">useDock</td>
+				<td class="default">true</td>
+				<td class="detail">Is there is a dock, should we use it when the window is minimized?</td>
+			</tr>
+			<tr>
+				<td class="key">useDesktop</td>
+				<td class="default">true</td>
+				<td class="detail">Is there is a desktop, should we use it?</td>
+			</tr>
+			<tr>
+				<td class="key">inject</td>
+				<td class="default">document.body</td>
+				<td class="detail">Parent node of the window </td>
+			</tr>
+			<tr>
+				<td class="key">url</td>
+				<td class="default">null</td>
+				<td class="detail">URL of window content (use an iframe or XHR)</td>
+			</tr>
+			<tr>
+				<td class="key">data</td>
+				<td class="default">null</td>
+				<td class="detail">data to pass when requesting via XHR</td>
+			</tr>
+			<tr>
+				<td class="key">method</td>
+				<td class="default">inline</td>
+				<td class="detail">Content load method<br/>
+					<em>XHR (can also specify POST or GET to specify request method), Request.HTML (request), frame (iframe), inline (html), plain (text)</em>
+				</td>
+			</tr>
+			<tr>
+				<td class="key">content</td>
+				<td class="default">none</td>
+				<td class="detail">Window's inner content (can be HTML or Text)</td>
+			</tr>
+			<tr>
+				<td class="key">effects</td>
+				<td class="default">true</td>
+				<td class="detail">Show effects or be boring about things, required Fx library</td>
+			</tr>
+			<tr>
+				<td class="key">center</td>
+				<td class="default">true</td>
+				<td class="detail">Center window within 'inject' parent</td>
+			</tr>
+			<tr>
+				<td class="key">top | bottom</td>
+				<td class="default">null</td>
+				<td class="detail">Top or bottom position of the window in pixels </td>
+			</tr>
+			<tr>
+				<td class="key">left | right</td>
+				<td class="default">null</td>
+				<td class="detail">Left or right position of the window in pixels</td>
+			</tr>
+			<tr>
+				<td class="key">Event callbacks</td>
+				<td class="default">$empty</td>
+				<td class="detail">All event callbacks:<br/>
+					<em>onDestroy onShow onContentLoaded onFocus onResize onResizeStart onMinimize onRestoreMinimize onMaximize onRestoreMaximize onClose onCloseComplete onHide onDrag onDragStart</em>
+				</td>
+			</tr>
+			</table>
+		</span>
+	</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="setOpacity">
+	<a name="espresso.window.setOpacity"></a>
+	<p class="title"><span class="function">setOpacity(opacity)</span> Sets window opacity</p>
+	<p class="parameter">
+		<span class="field">opacity</span>
+		<span class="explanation">Float value between 0 and 1</span>
+	</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="getID">
+	<a name="espresso.window.getID"></a>
+	<p class="title"><span class="function">getID()</span> Returns current window id</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="getZIndex">
+	<a name="espresso.window.getZIndex"></a>
+	<p class="title"><span class="function">getZIndex()</span> Returns window's current zIndex level</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="setZIndex">
+	<a name="espresso.window.setZIndex"></a>
+	<p class="title"><span class="function">setZIndex(zIndex)</span> Set window's zIndex level manually</p>
+	<p class="parameter">
+		<span class="field">zIndex</span>
+		<span class="explanation">New z-index level to apply to window</span>
+	</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="getWindowNumber">
+	<a name="espresso.window.getWindowNumber"></a>
+	<p class="title"><span class="function">getWindowNumber()</span> Returns the XWindow count number</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="getDesktop">
+	<a name="espresso.window.getDesktop"></a>
+	<p class="title"><span class="function">getDesktop()</span> Returns the desktop the window is in, else return window's parent element</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="setTitle">
+	<a name="espresso.window.setTitle"></a>
+	<p class="title"><span class="function">setTitle(title)</span> Sets window title</p>
+	<p class="parameter">
+		<span class="field">title</span>
+		<span class="explanation">Window title (can be empty)</span>
+	</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="getTitle">
+	<a name="espresso.window.getTitle"></a>
+	<p class="title"><span class="function">getTitle()</span> Gets window title</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="getElement">
+	<a name="espresso.window.getElement"></a>
+	<p class="title"><span class="function">getElement(element)</span> Returns the element within the window</p>
+	<p class="parameter">
+		<span class="field">element</span>
+		<span class="explanation">Element you wish to retrieve from within the windows elements. Elements are:
+			<em>container, zIndexFix, overlay, titleBar, title, contentBorder, contentWrapper, content, canvas, resizeHandle, controls, closeButton, maximizeButton, minimizeButton, canvasIcon, iframe</em>
+		</span>
+	</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="getContent">
+	<a name="espresso.window.getContent"></a>
+	<p class="title"><span class="function">getContent()</span> Returns current window content (a div element)</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="getSize">
+	<a name="espresso.window.getSize"></a>
+	<p class="title"><span class="function">getSize()</span> Returns the window's width and height in an object format {x, y}</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="setContent">
+	<a name="espresso.window.setContent"></a>
+	<p class="title"><span class="function">setContent(options)</span> Sets window content using an existing element, XHR request, Request.HTML, iframe insert, or HTML/Text content.</p>
+		<p class="parameter">
+		<span class="field">options</span>
+		<span class="explanation">
+			HTML Element, HTML Code, Plain Text, or a Hash with the following keys:
+			<table>
+			<tr><th>Key</th>   <th>Default</th> <th>Description </th></tr>
+			<tr>
+				<td class="key">url</td>
+				<td class="default">null</td>
+				<td class="detail">URL to request via Ajax Request or iframe </td>
+			</tr>
+			<tr>
+				<td class="key">data</td>
+				<td class="default">null</td>
+				<td class="detail">data to post when requesting via XHR</td>
+			</tr>
+			<tr>
+				<td class="key">method</td>
+				<td class="default">inline</td>
+				<td class="detail">Content load method
+					<em>XHR (can also specify POST or GET to specify request method), Request.HTML (request), frame (iframe), inline (html), plain (text)</em>
+				</td>
+			</tr>
+			<tr>
+				<td class="key">content</td>
+				<td class="default">null</td>
+				<td class="detail">HTML or Plain Text to replace the existing content with</td>
+			</tr>
+			</table>
+		</span>
+	</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="focus">
+	<a name="espresso.window.focus"></a>
+	<p class="title"><span class="function">focus()</span> Give focus to this window above all other windows</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="show">
+	<a name="espresso.window.show"></a>
+	<p class="title"><span class="function">show()</span> Make window visible. Injects window into DOM if not injected</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="close">
+	<a name="espresso.window.close"></a>
+	<p class="title"><span class="function">close()</span> Close window. Will hide or destory based on setting destroyOnClose</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="hide">
+	<a name="espresso.window.hide"></a>
+	<p class="title"><span class="function">hide()</span> Hide the window from being visible</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="destroy">
+	<a name="espresso.window.destroy"></a>
+	<p class="title"><span class="function">destroy()</span> Remove window from DOM</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="maximize">
+	<a name="espresso.window.maximize"></a>
+	<p class="title"><span class="function">maximize()</span> Maximize window. If maximized, unmaximize</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="restoreMaximize">
+	<a name="espresso.window.restoreMaximize"></a>
+	<p class="title"><span class="function">restoreMaximize()</span> Unmaximize window</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="minimize">
+	<a name="espresso.window.minimize"></a>
+	<p class="title"><span class="function">minimize()</span> Minimize window. If minimized, unminimize</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="restoreMinimized">
+	<a name="espresso.window.restoreMinimized"></a>
+	<p class="title"><span class="function">restoreMinimized()</span> Unminimize window</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="visible">
+	<a name="espresso.window.visible"></a>
+	<p class="title"><span class="function">visible()</span> Returns whether the window is visible or now.</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="showCenter">
+	<a name="espresso.window.showCenter"></a>
+	<p class="title"><span class="function">showCenter()</span> Shows window in center of screen.</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="setPosition">
+	<a name="espresso.window.setPosition"></a>
+	<p class="title"><span class="function">setPosition(options)</span> Position window within 'inject' property</p>
+	<p class="parameter">
+		<span class="field">options</span>
+		<span class="explanation">
+			Hash map of new window position, here is the key list:
+			<table>
+			<tr><th>Key</th>   <th>Default</th> <th>Description </th></tr>
+			<tr>
+				<td class="key">top | bottom</td>
+				<td class="default">null</td>
+				<td class="detail">Top or bottom position of the window in pixels </td>
+			</tr>
+			<tr>
+				<td class="key">left | right</td>
+				<td class="default">null</td>
+				<td class="detail">Left or right position of the window in pixels </td>
+			</tr>
+			<tr>
+				<td class="key">effects</td>
+				<td class="default">class 'effects' property</td>
+				<td class="detail">Use effect when moving window </td>
+			</tr>
+			<tr>
+				<td class="key">center</td>
+				<td class="default">true</td>
+				<td class="detail">Center window within 'inject' property </td>
+			</tr>
+		</table>
+		</span>
+	</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="getPosition">
+	<a name="espresso.window.getPosition"></a>
+	<p class="title"><span class="function">getPosition()</span> Retruns window's coordinates in an object format containing 'top', 'left', 'width', 'height', 'right', and 'bottom' positions</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="resize">
+	<a name="espresso.window.resize"></a>
+	<p class="title"><span class="function">resize()</span> Resize window's inner elements</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="setSize">
+	<a name="espresso.window.setSize"></a>
+	<p class="title"><span class="function">setSize(width, height, rePosition)</span> Set the size of a window</p>
+	<p class="parameter">
+		<span class="field">width</span>
+		<span class="explanation">Width to set window</span>
+	</p>
+	<p class="parameter">
+		<span class="field">height</span>
+		<span class="explanation">Height to set window</span>
+	</p>
+	<p class="parameter">
+		<span class="field">rePosition</span>
+		<span class="explanation">Bool - If true, window will be repositioned within injected parent, else if false window will keep same position. Default: true</span>
+	</p>
+</div>
+<br style='clear:both'/>
+
+<div class="function window" title="setDestroyOnClose">
+	<a name="espresso.window.setDestroyOnClose"></a>
+	<p class="title"><span class="function">setDestroyOnClose(bool)</span> Make window be destroyed on close or just hidden</p>
+		<p class="parameter">
+		<span class="field">bool</span>
+		<span class="explanation">If true window will be destroyed on close, else if false window will be hidden. Default: true</span>
+	</p>
+</div>
+<br style='clear:both'/>
+
+<h3>To add Events to the window</h3>
+<p>If you want to add an Event or Events to the window, use Mootools Events class with win.addEvent, example:</p>
+<pre>
+win.addEvent('onResize', function() {
+	// reposition elements now
+})
+</pre>
+<p>or win.addEvents, example:</p>
+<pre>
+win.addEvents({
+	'onShow': function(win) {
+		alert('Window is now visible.');
+	},
+
+	'onHide': function(win) {
+		alert('Window is no longer visible.');
+	}
+});
+</pre>
+<p>Please keep in mind, all Events have the 'this' passed to it <b>except</b> onContentLoaded, onContentLoaded varies depending on the load method.</p>
+
+<h3>Loading Content with an XMLHttpRequest(XHR)</h3>
+<p>For content to load via xhr all the files must be online and in the same domain. If you need to load content from another domain or wish to have it work offline, load the content in a iframe instead of using the xhr option. XHR does not work within a localhost.</p>
+
+<h3>Loading Content with an Iframe</h3>
+<p>You can use an iframe as a method to load your contentm which will load the specified url within the iframe. To control the iframe, use getContent() and it will return the iframe element if there is an iframe being used.</p>
+
+<h3>Turning a link into a window opener</h3>
+
+Example HTML:
+<pre>
+&lt;a id="docsLink" href="pages/docs.html"&gt;Documentation&lt;/a&gt;
+</pre>
+
+Example Javascript:
+<pre>
+	if ($('docsLink')){
+		$('docsLink').addEvent('click', function(e){
+			new Event(e).stop();
+			new Espresso.Window({
+				id: 'docs',
+				title: 'Documentation',
+				method: 'xhr',
+				url: 'pages/docs.html',
+				width: 320,
+				height: 320,
+				x: 20,
+				y: 60
+			});
+		});
+	}
+</pre>
+
+<p><strong>Notes:</strong></p>
+<p>If you wish to add links in windows that open other windows remember to add events to those links when the windows are created.</p>
+
+<h3>Updating the Content of a Window</h3>
+<p>Updating the content of a window is very simple.</p>
+
+You can change the content of a window by referring to:
+<pre>
+this.setContent('content');
+</pre>
+
+If you used the iframe load method, you can change the src of that window's iframe as follows:
+<pre>
+this.getContent().src = 'http://www.mydomain.com/';
+</pre>
+
+<h3>Closing a Window</h3>
+<p>Closing a window is very simple as well.</p>
+
+Example Javascript:
+<pre>
+this.close();
+</pre>
+
+<h3>Swiff and SWFobject</h3>
+<p>I am using Swiff to load the example YouTube Flash now since Swiff is built into Mootools, but it has some performance issues when resizing, maximizing, and minimizing windows with Flash in them in Opera that SWFobject did not.</p>
+
+<h3>General Issues</h3>
+<p>If you encounter any issues or have a solution for any of the known issues, please let me know.</p>
+
+<h3>Browser Performance Issues</h3>
+<p>Opera 9</p>
+<ul>
+	<li>You can move the scrollbars on windows that are behind other windows, thought the scrollbars don't bleed through.</li>
+	<li>Seems to have issues with Swiff, though you could use SWFobject instead.</li>
+</ul>
+
+<p>Mac Firefox 2  - Not fully supported</p>
+<ul>
+	<li>Has issues with Flash Z-Index.</li>
+</ul>

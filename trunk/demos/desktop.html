@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<title>Mootools Espresso UI</title>
+	<meta name="description" content="A web applications user interface library built on the Mootools javascript framework" />
+
+	<link rel="stylesheet" href="../css/style.css" type="text/css" />
+	<link rel="stylesheet" href="../css/docs.css" type="text/css" />
+	<link rel="stylesheet" href="../css/espresso.context.css" type="text/css" />
+	<link rel="stylesheet" href="../css/espresso.desktop.css" type="text/css" />
+	<link rel="stylesheet" href="../css/espresso.dock.css" type="text/css" />
+	<link rel="stylesheet" href="../css/espresso.startmenu.css" type="text/css" />
+	<link rel="stylesheet" href="../css/espresso.scrollbar.css" type="text/css" />
+	<link rel="stylesheet" href="../css/espresso.window.css" type="text/css" />
+	<link rel="stylesheet" href="../css/espresso.dialog.css" type="text/css" />
+	<script type="text/javascript" src="../lib/mootools-beta-1.2b2.js" charset="utf-8"></script>
+	<!--[if IE]>
+		<script type="text/javascript" src="../scripts/excanvas-compressed.js"></script>
+	<![endif]-->
+	<script type="text/javascript" src="../scripts/espresso.context.js" charset="utf-8"></script>
+	<script type="text/javascript" src="../scripts/espresso.desktop.js" charset="utf-8"></script>
+	<script type="text/javascript" src="../scripts/espresso.dock.js" charset="utf-8"></script>
+	<script type="text/javascript" src="../scripts/espresso.startmenu.js" charset="utf-8"></script>
+	<script type="text/javascript" src="../scripts/espresso.window.js" charset="utf-8"></script>
+	<script type="text/javascript" src="../scripts/espresso.dialog.js" charset="utf-8"></script>
+
+	<script type="text/javascript">
+		var Desktop, Dock, StartMenu;
+
+		window.addEvent('domready', function(){
+			// Create a desktop and a dock
+			Desktop = new Espresso.Desktop().setBackground('#ffffff');
+			Dock = new Espresso.Dock();
+			StartMenu = new Espresso.StartMenu();
+
+			Desktop.resize();
+
+			var DocsWin = new Espresso.Window({
+				'title': 'Documentation',
+				'width': 500,
+				'height': 500,
+				'resizelimit': false,
+				'method': 'request',
+				'url': '../pages/docs.html'
+			}).show();
+
+			var FAQwin = new Espresso.Window({
+				'title': 'Frequently Asked Questions',
+				'width': 250,
+				'height': 300,
+				'maxWidth': 300,
+				'maxHeight': 400,
+				'minWidth': 100,
+				'minHeight': 200,
+				'method': 'request',
+				'url': '../pages/faqs.html'
+			});
+
+			var ChangelogWin = new Espresso.Window({
+				'title': 'Changelog',
+				'width': 250,
+				'height': 300,
+				'maxWidth': 300,
+				'maxHeight': 400,
+				'minWidth': 100,
+				'minHeight': 200,
+				'method': 'request',
+				'url': '../pages/changelog.html'
+			});
+
+			Espresso.Active.Desktop.addContext([
+				{
+					'name': 'Click Where?',
+					'callback': function(e) {
+						var tagName = e.target.tagName.toLowerCase(), x = e.page.x, y = e.page.y;
+						alert('you clicked on <' + tagName + '> element at x: ' + x + ', and y: ' + y);
+					}
+				},
+				{separator: true},
+				{
+					'name': 'About Espresso UI',
+					'url': 'http://espresso-ui.googlecode.com/'
+				},
+				{
+					'name': 'Docs',
+					'callback': function() {
+						if (DocsWin.visible()) {
+							DocsWin.focus();
+						} else {
+							DocsWin.show().focus();
+						}
+					}
+				},
+				{separator: true},
+				{
+					'name': 'Download',
+					'url': 'http://code.google.com/p/espresso-ui/downloads/list'
+				},
+				{separator: true},
+				{
+					'name': 'Send to...',
+					'disabled': true
+				}
+			]);
+
+			Espresso.Active.StartMenu.addItems([
+				{
+					'name': 'Documentation',
+					'callback': function() {
+						if (DocsWin.visible()) {
+							DocsWin.focus();
+						} else {
+							DocsWin.show().focus();
+						}
+					}
+				},
+
+				{
+					'name': 'FAQs',
+					'title': 'Frequently Asked Questions',
+					'callback': function() {
+						if (FAQwin.visible()) {
+							FAQwin.focus();
+						} else {
+							FAQwin.show().focus();
+						}
+					}
+				},
+
+				{
+					'name': 'Changelog',
+					'callback': function() {
+						if (ChangelogWin.visible()) {
+							ChangelogWin.focus();
+						} else {
+							ChangelogWin.show().focus();
+						}
+					}
+				}
+			]);
+
+			new Espresso.Dialog.Alert(
+				'Welcome to the Espresso UI homepage. Espresso UI is a set of Mootools based javascript widgets that enable you to have easy user interface through your website(s). Not only is it free, but it\'s easy to use!',
+				{
+					'title': 'Mootools Espresso UI'
+				}
+			);
+		});
+
+		window.addEvent('resize', function() {
+			if (typeof Desktop == 'object')
+				Desktop.resize();
+		});
+	</script>
+
+</head>
+<body>
+
+</body>
+</html>
