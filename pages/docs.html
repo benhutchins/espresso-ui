@@ -1,0 +1,47 @@
+<h3>Aspects of Espresso UI</h3>
+<ul>
+	<li>Desktop - A simple desktop div that acts as a container for windows</li>
+	<li>Dock - Requires the Desktop, allows windows to minmize to it and an add a startmenu widget</li>
+	<li>Context Menus - Add context menus to elements</li>
+	<li>Windows - Create XWindows within a XHTML web page</li>
+	<li>Dialog - Create dynamic javascript alerts, confirms, and info boxes</li>
+</ul>
+
+<h3>Classes</h3>
+<p>
+Espresso - Class base (contains global variables for all other classes)<br/>
+Espresso.Desktop - Create a web desktop<br/>
+Espresso.Dock - Create a dock/task bar to allow windows to minmize to tray<br/>
+Espresso.StartMenu - Create a start menu widget<br/>
+<a href="pages/docs.context.html" rel="EspressoContext" class="openWindow">Espresso.Context</a> - Create context menus for elements<br/>
+<a href="pages/docs.window.html" rel="EspressoWindow" class="openWindow">Espresso.Window</a> - Create a new window<br/>
+Espresso.Scrollbar - Add styled scrollbars to elements and windows<br/>
+Espresso.Dialog.Alert - Create dynamic javascript alerts<br/>
+Espresso.Dialog.Confirm - Create dynamic javascript confirms<br/>
+Espresso.Dialog.Info - Create dynamic javascript info boxes<br/>
+</p>
+
+<script type="text/javascript">
+	var DocWindows = {};
+
+	$$('.openWindow').addEvent('click', function(e) {
+		new Event(e).stop();
+
+		if (DocWindows[this.getProperty('rel')] == null) {
+			DocWindows[this.getProperty('rel')] = new Espresso.Window({
+				'method': 'get',
+				'url': this.getProperty('href'),
+				'title': 'Documentation : ' + this.getHTML(),
+				'dockTitle': this.getHTML(),
+				'width': 900,
+				'height': 500,
+				'resizelimit': false
+			});
+		}
+
+		if (!DocWindows[this.getProperty('rel')].visible())
+			DocWindows[this.getProperty('rel')].show();
+		else
+			DocWindows[this.getProperty('rel')].focus();
+	});
+</script>

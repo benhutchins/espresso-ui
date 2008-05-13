@@ -1,0 +1,100 @@
+/* DOCUMENATION PART*/
+div.function {
+  border: 1px solid #888;
+  background:#FAF1E4;
+  float:left;
+	width:825px;
+	margin-bottom: 20px;
+}
+div.function .title {
+	padding: 5px 5px 5px 10px;
+  margin:0;
+  background:#F9F7F4;
+}
+
+p.parameter, p.parameter_header {
+  font-size: 12px;	
+  margin:0;
+  clear:left;
+  border-top: 1px dotted #272727;
+}
+
+p.parameter_header {
+  border-top: 1px dotted #272727;
+  border-bottom: 1px dotted #272727;
+  background:#F9F7F4;
+  float:left;
+}
+
+span.field, span.explanation {
+	float:left;
+	width:200px;
+	padding: 2px 2px 2px 10px;  
+}
+
+span.explanation {
+  border-left: 1px dotted #272727;
+}
+
+span.explanation {
+	width:600px;	
+}
+
+span.function {
+  font-family:"Courier";
+  display:block;
+  color:#A57F00;
+}
+
+th {
+  font: 14px "Trebuchet MS",Verdana,Arial,sans-serif; 
+  font-variant: small-caps;
+  color:#000;
+  text-align:left;
+}
+
+th, td.key, td.default, td.detail {
+  padding-right:10px;
+  padding-bottom:3px;
+  vertical-align: top;
+}
+
+td.key {
+  font-style: italic ;
+  color:#666;
+}
+
+span.key, span.default, span.detail {
+  padding-bottom:3px;
+}
+
+span.header {
+  font: 14px "Trebuchet MS", Verdana, Arial, sans-serif; 
+  font-variant: small-caps;
+  color:#000;
+}
+
+.explanation ul {
+	padding:0;
+	margin:0;
+}
+
+.explanation .details {
+  float:left;
+}
+
+table.overview td {
+  vertical-align: top;
+  padding-right:30px;
+}
+table.overview ul {
+  margin:0;
+  padding-left:5px;
+  padding-top:5px;
+}
+
+.versions ul {
+  padding:0;
+	padding-bottom:5px;
+	margin:0;
+}

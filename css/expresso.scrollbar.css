@@ -1,0 +1,29 @@
+.scrollbar-vert{
+	background-color: #d2e8ff;
+	height: 206px;
+	width: 20px;
+	float:left;
+	z-index: 1000;
+}
+
+.handle-vert{
+	height: 42px;
+	width: 20px;
+	background-color:black;
+	z-index: 1001;
+}
+
+.scrollbar-hor{
+	background-color: #d2e8ff;
+	height: 20px;
+	width: 300px;
+	float:left;
+	z-index: 1000;
+}
+
+.handle-hor{
+	height: 20px;
+	width: 42px;
+	background-color:black;
+	z-index: 1001;
+}
