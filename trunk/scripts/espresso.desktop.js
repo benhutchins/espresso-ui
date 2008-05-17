@@ -16,7 +16,8 @@
 
    ----------------------------------------------------------------- */
 
-if (typeof Espresso == "undefined") { var Espresso = {} }
+if (typeof Espresso == "undefined") { var Espresso = {}; }
+
 Espresso = $extend(Espresso, {
 		hasDesktop:	false
 	});

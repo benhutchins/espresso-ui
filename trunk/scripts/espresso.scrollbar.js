@@ -19,7 +19,8 @@
 
    ----------------------------------------------------------------- */
 
-if (typeof Espresso == "undefined") { var Espresso = {} }
+if (typeof Espresso == "undefined") { var Espresso = {}; }
+
 Espresso.Scrollbar = new Class({
 	Implements: Options,
 

@@ -16,7 +16,7 @@
 
    ----------------------------------------------------------------- */
 
-if (typeof window["Espresso"] == "undefined") { var window["Espresso"] = {}; }
+if (typeof Espresso == "undefined") { var Espresso = {}; }
 
 Espresso.Tree = new Class({
 	Extends: Espresso.Node.Basic,
