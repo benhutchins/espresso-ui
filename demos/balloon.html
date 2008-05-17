@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<title>Mootools Espresso UI</title>
+	<meta name="description" content="A web applications user interface library built on the Mootools javascript framework" />
+
+	<link rel="stylesheet" href="../css/style.css" type="text/css" />
+	<link rel="stylesheet" href="../css/espresso.balloon.css" type="text/css" />
+	<script type="text/javascript" src="../lib/mootools-beta-1.2b2.js" charset="utf-8"></script>
+	<script type="text/javascript" src="../scripts/espresso.balloon.js" charset="utf-8"></script>
+
+	<script type="text/javascript">
+		window.addEvent('domready', function(){
+			var balloon = new Espresso.Balloon({
+				position: 'topleft',
+				duration: 5000,
+				bodyFx: true,
+				itemFx: true,
+				offset: 50,
+				margin: {x: 50, y: 50},
+				message: 'this is the message',
+				title: 'hello world'
+			});
+		});
+	</script>
+
+</head>
+<body>
+
+	<div>
+		This is the window.
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<title>Mootools Espresso UI</title>
+	<meta name="description" content="A web applications user interface library built on the Mootools javascript framework" />
+
+	<link rel="stylesheet" href="../css/style.css" type="text/css" />
+	<link rel="stylesheet" href="../css/espresso.balloon.css" type="text/css" />
+	<script type="text/javascript" src="../lib/mootools-beta-1.2b2.js" charset="utf-8"></script>
+	<script type="text/javascript" src="../scripts/espresso.shortcut.js" charset="utf-8"></script>
+
+	<script type="text/javascript">
+		window.addEvent('domready', function(){
+			new Espresso.Shortcut({
+				type: 'down',
+				key: 'any',
+				element: $('text'),
+				onEvent: function(event) {
+					var newText = (
+						'key     : ' + event.key + "<br/>" +
+						'code    : ' + event.code + "<br/>" +
+						'control : ' + event.control + "<br/>" + 
+						'alt     : ' + event.alt + "<br/>" +
+						'shift   : ' + event.shift + "<br/>" +
+						'meta    : ' + event.meta + "<br/>" +
+						'num lock: ' + event.numLock
+					);
+
+					$('hit').setHTML(newText);
+				}
+			});
+
+			new Espresso.Shortcut({
+				type: 'down',
+				key: 'any',
+				element: $('text2'),
+				modifiers: {shift: true, numLock: true, any: true},
+				onEvent: function(event) {
+					var newText = (
+						'key     : ' + event.key + "<br/>" +
+						'code    : ' + event.code + "<br/>" +
+						'control : ' + event.control + "<br/>" + 
+						'alt     : ' + event.alt + "<br/>" +
+						'shift   : ' + event.shift + "<br/>" +
+						'meta    : ' + event.meta + "<br/>" +
+						'num lock: ' + event.numLock
+					);
+
+					$('hit2').setHTML(newText);
+				}
+			});
+
+			new Espresso.Shortcut({
+				type: 'down',
+				key: 'numbers',
+				element: $('text3'),
+				onEvent: function(event) {
+					var newText = (
+						'key     : ' + event.key + "<br/>" +
+						'code    : ' + event.code + "<br/>" +
+						'control : ' + event.control + "<br/>" + 
+						'alt     : ' + event.alt + "<br/>" +
+						'shift   : ' + event.shift + "<br/>" +
+						'meta    : ' + event.meta + "<br/>" +
+						'num lock: ' + event.numLock
+					);
+
+					$('hit3').setHTML(newText);
+				}
+			});
+
+			$('text').focus();
+		});
+	</script>
+
+</head>
+<body>
+
+	<div style="width: 500px;">
+		<h2>Accept anykey</h2>
+		<textarea style="float: left; width: 400px; height: 200px; border:1px solid #000; background: #ccc;" id="text"></textarea>
+		<div id="hit" style="float: right; width: 95px; height: 200px; background-color: #333; color: #fff;"></div>
+	</div>
+
+	<div style="width: 500px; margin-top: 50px;">
+		<h2>Test two (accepts any Shift or NumPad key)</h2>
+		<textarea style="float: left; width: 400px; height: 200px; border:1px solid #000; background: #ccc;" id="text2"></textarea>
+		<div id="hit2" style="float: right; width: 95px; height: 200px; background-color: #333; color: #fff;"></div>
+	</div>
+
+	<div style="width: 500px; margin-top: 50px;">
+		<h2>Test three (accepts only number keys)</h2>
+		<textarea style="float: left; width: 400px; height: 200px; border:1px solid #000; background: #ccc;" id="text3"></textarea>
+		<div id="hit3" style="float: right; width: 95px; height: 200px; background-color: #333; color: #fff;"></div>
+	</div>
+
+</body>
+</html>
