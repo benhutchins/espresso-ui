@@ -6,7 +6,7 @@
 	<title>Mootools Cocoa UI</title>
 	<link rel="stylesheet" href="../css/style.css" type="text/css" />
 	<link rel="stylesheet" href="../css/espresso.window.css" type="text/css" />
-	<script type="text/javascript" src="../libs/mootools-beta-1.2b2.js" charset="utf-8"></script>
+	<script type="text/javascript" src="../lib/mootools-beta-1.2b2.js" charset="utf-8"></script>
 	<!--[if IE]>
 		<script type="text/javascript" src="../scripts/excanvas-compressed.js"></script>		
 	<![endif]-->
@@ -25,10 +25,20 @@
 				Win2.show();
 			}.bind(Win2));
 
-			new Espresso.Window().setTitle('Hello world').setContent({
+			/*new Espresso.Window().setTitle('Hello world').setContent({
 				method: 'xhr',
 				url: 'pages/helloworld.html'
-			}).setDestroyOnClose(true).show().setPosition({center: false});
+				}).setDestroyOnClose(true).show().setPosition({center: false});*/
+
+			var Win2 = new Espresso.Window({
+				title: 'Window 3',
+				method: 'iframe',
+				url: 'http://mootools.net/',
+				status: 'Mootools',
+				top: 10,
+				left: 10,
+				width: 500
+			}).show();
 		});
 	</script>
 </head>
